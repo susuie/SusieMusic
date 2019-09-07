@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>SusieMusic | Communication</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../js/jPlayer/jplayer.flat.css" type="text/css" />
+  <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../css/app.css" type="text/css" /> 
+  <link href="../css/main-style.css" type="text/css" rel="stylesheet">
+	<!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+   <script src="../js/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="../js/app.js"></script>  
+  <script src="../js/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="../js/app.plugin.js"></script>
+  <script type="text/javascript" src="../js/jPlayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="../js/jPlayer/add-on/jplayer.playlist.min.js"></script>
+  <script type="text/javascript" src="../js/jPlayer/demo.js"></script>
+  <script src="../js/turn.js"></script> 
+  <script src="../js/layer.min.js"></script>
+  <script src="../js/layer.js"></script>
+  <script src="../js/query.js"></script>
+   <script src="../js/index.js"></script>
+   <script src="../js/sockjs.js"></script>
+   <script type="text/javascript" src="../js/turn.js"></script>
+</head>
+<body class="">
+  <section class="vbox">
+    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+      <div class="navbar-header aside bg-info nav-xs">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+          <i class="icon-list"></i>
+        </a>
+        <a href="javascript:;" class="navbar-brand text-lt" onclick="turnlogin()">
+          <i class="icon-earphones"></i>
+          <img src="../image/logo1.png" alt="." class="hide" />
+          <span class="hidden-nav-xs m-l-sm">音乐</span>
+        </a>
+        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+          <i class="icon-settings"></i>
+        </a>
+      </div>      <ul class="nav navbar-nav hidden-xs">
+        <li>
+          <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+            <i class="fa fa-indent text"></i>
+            <i class="fa fa-dedent text-active"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-sm bg-white btn-icon rounded"  onclick="titleQuery()" ><i class="fa fa-search"></i></button>
+            </span>
+            <input id="titleQuery" type="text" class="form-control input-sm no-border rounded" placeholder="搜索歌曲，专辑...">
+          </div>
+        </div>
+      </div>
+      <div class="navbar-right ">
+        <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+          <li class="hidden-xs">
+            <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
+              <i class="icon-bell"></i>
+              <span class="badge badge-sm up bg-danger count">2</span>
+            </a>
+            <section class="dropdown-menu aside-xl animated fadeInUp">
+              <section class="panel bg-white">
+                <div class="panel-heading b-light bg-light">
+                  <strong>您有 <span class="count">2</span>条新消息</strong>
+                </div>
+                <div class="list-group list-group-alt">
+                  <a href="#" class="media list-group-item">
+                    <span class="pull-left thumb-sm">
+                      <img src="../image/a0.png" alt="..." class="img-circle">
+                    </span>
+                    <span class="media-body block m-b-none">
+                      Use awesome animate.css<br>
+                      <small class="text-muted">10 minutes ago</small>
+                    </span>
+                  </a>
+                  <a href="#" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      1.0 initial released<br>
+                      <small class="text-muted">1 hour ago</small>
+                    </span>
+                  </a>
+                </div>
+                <div class="panel-footer text-sm">
+                  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                  <a href="#notes" data-toggle="class:show animated fadeInRight">查看所有消息</a>
+                </div>
+              </section>
+            </section>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="../image/logo2.png" alt="...">
+              </span>
+             <span id="usersession"></span> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight">            
+              <li>
+                <span class="arrow top"></span>
+                <a href="javascript:;" onclick="setting()">设置</a>
+              </li>
+              <li>
+                <a href="profile">我的信息</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge bg-danger pull-right">3</span>
+                  通知
+                </a>
+              </li>
+              <li>
+                <a href="docs">帮助</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="../index.html" >退出</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>      
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-black dk nav-xs aside hidden-print" id="nav">          
+          <section class="vbox">
+            <section class="w-f-md scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+                
+
+
+                <!-- nav -->                 
+                <nav class="nav-primary hidden-xs">
+                  <ul class="nav bg clearfix">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      发现
+                    </li>
+                    <li id="uumanage" style="display:block">
+                      <a href="manage" id="user-manage">
+                         <i class="icon-user"></i>
+                        <span class="font-bold">管理员</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="genres">
+                        <i class="icon-music-tone-alt icon text-info"></i>
+                        <span class="font-bold">主题音乐</span>
+                      </a>
+                    </li>
+                    <li id="event" style="display:block">
+                      <a href="events">
+                        <i class="icon-drawer icon text-primary-lter"></i>
+                        <b class="badge bg-primary pull-right">6</b>
+                        <span class="font-bold">广场</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="listen">
+                        <i class="icon-list icon  text-info-dker"></i>
+                        <span class="font-bold">乐听</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="video" data-target="#content" data-el="#bjax-el" data-replace="true">
+                        <i class="icon-social-youtube icon  text-primary"></i>
+                        <span class="font-bold">视频</span>
+                      </a>
+                    </li>
+                    <li class="m-b hidden-nav-xs"></li>
+                  </ul>
+                  <ul class="nav" data-ride="collapse">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      接口
+                    </li>                   
+                    <li >
+                      <a href="#" class="auto">
+                        
+                        <i class="icon-grid icon">
+                        </i>
+                        <span>网页</span>
+                      </a>
+                     </li>
+                        <li >
+                          <a href="profile" class="auto">                                                        
+                            <i class="fa fa-angle-right text-xs"></i>
+
+                            <span>个人展示</span>
+                          </a>
+                        </li>                                                                                                                                   
+                  </ul>
+                  <ul class="nav text-sm" data-ride="collapse">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      <span class="pull-right"><a href="#"><i class="icon-plus i-lg"></i></a></span>
+                      我的歌单
+                    </li>                  
+                    <li>
+                      <a href="#" class="auto">
+                      	<span class="pull-right text-muted">
+                          <i class="fa fa-angle-left text"></i>
+                          <i class="fa fa-angle-down text-active"></i>
+                        </span>
+                        <i class="icon-music-tone icon"></i>
+                        <span>我喜欢的歌</span>
+                      </a>
+                       <ul class="nav dk text-sm" id="lovesong">                      
+                       </ul>
+                    </li>             
+                  </ul>
+                </nav>
+                <!-- / nav -->
+              </div>
+            </section>
+            
+            <footer class="footer hidden-xs no-padder text-center-nav-xs">
+              <div class="bg hidden-xs ">
+                  <div class="dropdown dropup wrapper-sm clearfix">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb-sm avatar pull-left m-l-xs" onclick="showWords()">                        
+                        <img src="../image/logo2.png" class="dker" alt="...">
+                        <i class="on b-black"></i>
+                      </span>                     
+                    </a>                    
+                  </div>
+                </div>            </footer>
+          </section>
+        </aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="hbox stretch">
+            <section>
+              <section class="vbox">
+                <section class="scrollable padder-lg w-f-md" id="bjax-target">
+                  <a href="#" class="pull-right text-muted m-t-lg" data-toggle="class:fa-spin" ><i class="icon-refresh i-lg  inline" id="refresh"></i></a>
+                  <h2 class="font-thin m-b">发现 <span class="musicbar animate inline m-l-sm" style="width:20px;height:20px">
+                    <span class="bar1 a1 bg-primary lter"></span>
+                    <span class="bar2 a2 bg-info lt"></span>
+                    <span class="bar3 a3 bg-success"></span>
+                    <span class="bar4 a4 bg-warning dk"></span>
+                    <span class="bar5 a5 bg-danger dker"></span>
+                  </span></h2>
+                  <div class="aa" id="indexsong">
+				  </div>
+				  
+				  <div style="clear:both;"></div>
+				  <!-- 用js添加-->			
+                  <div class="row">
+                    <div class="col-md-7">
+                      <h3 class="font-thin">新歌榜</h3>
+                      <div class="row row-sm" id="newsong">
+                        
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <h3 class="font-thin">热歌榜</h3>
+                      <div class="list-group bg-white list-group-lg no-bg auto" id="hotsong"> 
+                                           	                                                                       	
+                      </div>
+                    </div>
+                  </div>                  
+                </section>
+                <footer class="footer bg-dark">
+                  <div id="jp_container_N">
+                    <div class="jp-type-playlist">
+                      <div id="jplayer_N" class="jp-jplayer hide"></div>
+                      <div class="jp-gui">
+                        <div class="jp-video-play hide">
+                          <a class="jp-video-play-icon">播放</a>
+                        </div>
+                        <div class="jp-interface">
+                          <div class="jp-controls">
+                            <div><a class="jp-previous"><i class="icon-control-rewind i-lg"></i></a></div>
+                            <div>
+                              <a class="jp-play"><i class="icon-control-play i-2x"></i></a>
+                              <a class="jp-pause hid"><i class="icon-control-pause i-2x"></i></a>
+                            </div>
+                            <div><a class="jp-next"><i class="icon-control-forward i-lg"></i></a></div>
+                            <div class="hide"><a class="jp-stop"><i class="fa fa-stop"></i></a></div>
+                            <div><a class="" data-toggle="dropdown" data-target="#playlist" title="播放列表"><i class="icon-list"></i></a></div>
+                            <div class="jp-progress hidden-xs">
+                              <div class="jp-seek-bar dk">
+                                <div class="jp-play-bar bg-info">
+                                </div>
+                                <div class="jp-title text-lt">
+                                  <ul>
+                                    <li></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="hidden-xs hidden-sm jp-current-time text-xs text-muted"></div>
+                            <div class="hidden-xs hidden-sm jp-duration text-xs text-muted"></div>
+                            <div class="hidden-xs hidden-sm">
+                              <a class="jp-mute" title="音量"><i class="icon-volume-2"></i></a>
+                              <a class="jp-unmute hid" title="静音"><i class="icon-volume-off"></i></a>
+                            </div>
+                            <div class="hidden-xs hidden-sm jp-volume">
+                              <div class="jp-volume-bar dk">
+                                <div class="jp-volume-bar-value lter"></div>
+                              </div>
+                            </div>
+                            <div>
+                              <a class="jp-shuffle" title="随机播放"><i class="icon-shuffle text-muted"></i></a>
+                              <a class="jp-shuffle-off hid" title="随机播放 开"><i class="icon-shuffle text-lt"></i></a>
+                            </div>
+                            <div>
+                              <a class="jp-repeat" title="单曲循环"><i class="icon-loop text-muted"></i></a>
+                              <a class="jp-repeat-off hid" title="单曲循环 开"><i class="icon-loop text-lt"></i></a>
+                            </div>
+                            <div class="hide">
+                              <a class="jp-full-screen" title="全屏"><i class="fa fa-expand"></i></a>
+                              <a class="jp-restore-screen" title="恢复全屏"><i class="fa fa-compress text-lt"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="jp-playlist dropup" id="playlist">
+                        <ul class="dropdown-menu aside-xl dker">
+                          <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+                          <li class="list-group-item"></li>
+                        </ul>
+                      </div>
+                      <div class="jp-no-solution hide">
+                        <span>Update Required</span>
+                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </section>
+            </section>
+            <!-- side content -->
+            <aside class="aside-md bg-light dk" id="sidebar">
+              <section class="vbox animated fadeInRight">
+                <section class="w-f-md scrollable hover">
+                  <h4 class="font-thin m-l-md m-t">音乐好友</h4>
+                  <ul class="list-group no-bg no-borders auto m-t-n-xxs" id="listRelation" onclick="listRelation()">
+                    <li class="list-group-item">
+                      <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
+                        <img src="../image/logo2.png" alt="..." class="img-circle">
+                        <i class="on b-light right sm"></i>
+                      </span>
+                      <div class="clear">
+                        <div><a href="#">点击展开聊天</a></div>                        
+                      </div>
+                    </li>
+                                                                                                                                                   
+                  </ul>
+                </section>
+                <footer class="footer footer-md bg-black">
+                  <form class="" role="search">
+                    <div class="form-group clearfix m-b-none">
+                      <div class="input-group m-t m-b">
+                        <span class="input-group-btn">
+                          <button type="submit" class="btn btn-sm bg-empty text-muted btn-icon"><i class="fa fa-search"></i></button>
+                        </span>
+                        <input type="text" class="form-control input-sm text-white bg-empty b-b b-dark no-border" placeholder="Search members">
+                      </div>
+                    </div>
+                  </form>
+                </footer>
+              </section>              
+            </aside>
+            <!-- / side content -->
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+        </section>
+      </section>
+    </section>    
+  </section>
+
+
+ <script type="text/javascript"> 
+	var currentId = null;
+	var currentName = null;	
+	var ws = null; 	
+	var websocket = null;
+	
+		//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+		window.onbeforeunload = function() {
+			closeWebSocket();
+		};
+
+		//关闭WebSocket连接
+		function closeWebSocket() {
+			websocket.close();
+		}
+		// "message"{
+		//			"from": "xxxx",
+		//			"to":["xxx"],
+		//			"content":"xxxxx",
+		//			"type":0,
+		//			"time":"xxxx.xx.xx xx.xx.xx"
+		//		}
+
+		//处理接收到的数据
+		//消息类型说明：3和4为上下线通知，5和6为空白消息或发送失败的消息，1和-1为同意或拒绝好友申请消息，0发送成功消息
+		function handleReceiveMessage(message) {
+			messages = JSON.parse(message);
+			//判断是否为上下线通知
+			if(messages.type == 3 || messages.type == 4){
+				changeToOnlineStatus(messages.content, messages.from, messages.to,messages.type,messages.time,message);
+			}
+			else if(messages.type == 5 || messages.type == 6){
+				openRelationApply(messages.content, messages.from, messages.to,messages.type,messages.time,message);
+			}
+			else if(messages.type == 0 ||messages.type == -1 || messages.type == 1)
+				showReceiveMessage(messages.content, messages.from, messages.to,messages.type,messages.time,message);
+		}
+		
+		//发送消息
+		function sendMessage(content, usersId, type) {
+			websocket.send(JSON.stringify({
+				from : currentId,
+				to : usersId,
+				content : content,
+				type : type,
+				time : getDateFull()
+			}));
+		}
+
+		//将消息显示在网页上
+		function showReceiveMessage(content, from, to, type, time, message) {
+			var times = time.split(' ');
+			var now = getDateFull();
+			var nows = now.split(' ');
+			var showTime = times[1];
+			if(nows[0]!=times[0]){
+				showTime = time;
+			}
+			if (from == currentId) {
+				var messageReceiver = '#' + to[0] + 'output';
+				var target = document.getElementById(to[0]+'output');
+				if(type == 1){
+					messageReceiver = '#' + to[0] + 'outputGroup';
+					target = document.getElementById(to[0]+'outputGroup');
+				}
+				var rightArrow = '<div class="row singleMessage">'
+						+ '<div class="col-md-11 col-sm-11 col-xs-11 col-lg-11 text">'
+						+ '<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 timePositionRight">'
+						+ '<div id="time" class="timeRight">'
+						+ showTime
+						+ '</div>'
+						+ '</div>'
+						+ '<div class="arrowBoxRight">'
+						+ '<div class="message">'
+						+ content
+						+ '</div>'
+						+ '</div>'
+						+ '</div>'
+						+ '<div id="icons" class="col-md-1 col-sm-1 col-xs-1 col-lg-1  iconsRight">'
+						+ '<img class="img-circle iconssRight" src="../image/h3.jpg">'
+						+ '</div>' + '</div>';
+				
+				if(target){
+					$(messageReceiver).append(rightArrow);
+					target.scrollTop = target.scrollHeight;
+				}
+				else{
+					doMessageNotice(content, from, to,type,time,message);
+				}
+			} else {
+				var messageReceiver= '#' + from + 'output';
+				var target = document.getElementById(from+'output');
+				if(type == 1){
+					messageReceiver= '#' + to[0] + 'outputGroup';
+					target = document.getElementById(to[0]+'outputGroup');
+					var fromUser = null;
+					var findUser = {};
+					findUser.userId = from;
+					$.ajax({
+						async : false, //设置同步
+						type : 'POST',
+						url : '../user/doFindUserById',
+						data : findUser,
+						dataType : 'json',
+						success : function(resoult) {
+							if (resoult.userid != null) {
+								fromUser = resoult;
+							}
+							else{
+								layer.alert('查询错误');
+							}
+						},
+						error : function(resoult) {
+							layer.alert('查询错误');
+						}
+						});
+					showTime = fromUser.nickName +'&nbsp;&nbsp;'+showTime;
+				}
+				leftArrow = '<div class="row singleMessage">'
+						+ '<div id="icons" class="col-md-1 col-sm-1 col-xs-1 col-lg-1  iconsLeft">'
+						+ '<img class="img-circle iconssLeft" src="../image/h3.jpg">'
+						+ '</div>'
+						+ '<div class="col-md-11 col-sm-11 col-xs-11 col-lg-11 text">'
+						+ '<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 timePositionLeft">'
+						+ '<div class="timeLeft">' 
+						+ showTime
+						+ '</div>'
+						+ '</div>' + '<div class="arrowBoxLeft">'
+						+ '<div id="leftMessage" class="message">' + content
+						+ '</div>' + '</div>' + '</div>' + '</div>';
+				if(target){
+					$(messageReceiver).append(leftArrow);
+					target.scrollTop = target.scrollHeight;
+					}
+				else
+					doMessageNotice(content, from, to,type,time,message);
+			}
+		}
+		var noticeIndex = null;
+		var noticeUser = new Array();
+		var noticeMessage = new Array();
+		var noticeCount = 0;
+		var statusChangeMark = 0;
+		//消息通知
+		function doMessageNotice(content,from, to,type, time,message){
+			var fromUser = null;
+			var findUser = {};
+			findUser.userId = from;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../user/doFindUserById',
+				data : findUser,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult.userId != null) {
+						fromUser = resoult;
+					}
+					else{
+						layer.alert('查询错误');
+					}
+				},
+				error : function(resoult) {
+					layer.alert('查询错误');
+				}
+				});
+			
+			if(noticeIndex == null){
+				var html = '<div class="notice">'+
+					      '<div class="noticePosition" onclick="openNotice();">'+
+					        '<marquee id="noticeText">'+
+					        '</marquee>'+
+					      '</div>'+
+					    '</div>';
+		        noticeIndex = layer.open({
+		          type:1,
+		          title:false,
+		          closeBtn:0,
+		          content:html,
+		          shade:0,
+		          offset:'t',
+		          area:['180px','40px'],
+		          anim:6,
+		          id:'notice'
+		        });
+		   }
+		   if(type==0 || type == -1 || type == 1){
+			        noticeUser[noticeCount] = fromUser;
+			        noticeMessage[noticeCount] = message;
+			        noticeCount++;
+			}
+		   var noticeText = document.getElementById('noticeText');
+		   //这里也遇到了一个坑，哎。因为之前这里没有传type这个参数，所以这里判断的时候不会生效，那么提示区的文本自然就空掉了
+		   //不多说，都是泪。下次注意这种错误。
+		   var text='';
+		   if(type == 0 || type == -1){
+		   		text += fromUser.userNickName+':'+content;
+		   }
+		   else if(type ==3){
+		   		text = '您的联系人&nbsp;'+fromUser.userNickName+'&nbsp;上线了';
+		   		statusChangeMark = 1;
+		   }
+		   else if(type == 4){
+		   		text = '您的联系人 &nbsp;'+fromUser.userNickName+'&nbsp;下线了';
+		   		statusChangeMark = 1;
+		   }
+		   else if(type == 1){
+		   		var group = ajaxGetGroupById(to[0]);
+		   		text = group.groupName+'|'+fromUser.userNickName+':'+content;
+		   }
+		   text+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		   noticeText.innerHTML +=text;
+		}
+		
+		function openNotice(content, from, to, time){
+			layer.close(noticeIndex);
+			if(statusChangeMark == 1){
+				listRelation();
+			}
+			for(var i=0;i<noticeCount;i++){
+				var messages = JSON.parse(noticeMessage[i]);
+				if(messages.type == 0 ||messages.type == -1){
+					chatWithSomeBody(noticeUser[i].userId,noticeUser[i].userName,noticeUser[i].userNickName);
+				}
+				else if(messages.type == 1){
+					var group = ajaxGetGroupById(messages.to[0]);
+					chatWithGroup(group.id, group.groupId, group.groupName,group.groupCreaterId);
+				}	
+			}
+			noticeIndex = null;
+			noticeUser.splice(0,noticeUser.length);
+			noticeMessage.splice(0,noticeMessage.length);
+			noticeCount = 0;
+			statusChangeMark = 0;
+		}
+
+		function appendZero(s) {
+			return ("00" + s).substr((s + "").length);
+		} //补0函数
+
+		//获取当前时间日期
+		function getDateFull() {
+			var date = new Date();
+			var currentdate = date.getFullYear() + "-"
+					+ appendZero(date.getMonth() + 1) + "-"
+					+ appendZero(date.getDate()) + " "
+					+ appendZero(date.getHours()) + ":"
+					+ appendZero(date.getMinutes()) + ":"
+					+ appendZero(date.getSeconds());
+			return currentdate;
+		}
+
+		function closeWindow() {
+			window.opener = null;
+			window.open('', '_self');
+			window.close();
+		}
+
+		layer.ready(function() {
+			$.get("getsession",function(data){ 			 		
+				currentId = data.userid; 
+				currentName = data.nickName;
+			 
+		 		ws = "ws://localhost:20184/"+currentId;
+		 		
+				//获取服务端地址				
+				//ws = "ws://182.254.214.252:20818/${currentUser.userId}";
+				
+
+				//判断当前浏览器是否支持WebSocket
+				if ('WebSocket' in window) {
+					websocket = new WebSocket(ws);
+				} else {
+					layer.alert('对不起，你的浏览器不支持WebSocket', {
+						icon : 2
+					});
+				};
+
+				//连接成功建立的回调方法
+				websocket.onopen = function() {
+					//显示在线状态
+					//通知自己的所有好友自己上线啦
+					onLineStatusNotice(3);
+				};
+
+				//接收到消息的回调方法
+				websocket.onmessage = function(event) {
+					//接收到消息，处理消息
+					handleReceiveMessage(event.data);
+				};
+
+				//连接发生错误的回调方法
+				websocket.onerror = function() {
+					layer.alert('连接异常，请见谅');
+				};
+
+				//连接关闭的回调方法
+				websocket.onclose = function() {
+					//连接关闭，告诉所有好友我下线啦
+					onLineStatusNotice(4);
+					layer.alert('感谢您的使用，再见');
+				};
+				listRelation();	
+			});
+					
+		});
+		
+		//使用ajax获取当前用户的所有好友，现在大概知道json转来转去的过程了，上面两处使用ajax不太规范，但是改着太麻烦就不改了，能用就成
+		function getAllRelations(){
+			var allRelations = null;
+			var currentUser = {};
+			currentUser.userId = currentId;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../userRelation/getRelations',
+				data : currentUser,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult!=null) {
+						allRelations = resoult.relations;
+					}
+					else{
+						layer.alert('查询错误');
+					}
+				},
+				error : function(resoult) {
+					layer.alert('查询错误');
+				}
+				});
+			//划重点划重点，这里的eval方法不同于prase方法，外面加括号
+			allRelations = eval("("+allRelations+")");
+			return allRelations;
+		}
+		
+		function onLineStatusNotice(type){
+			var allRelations = getAllRelations();
+			var content = null;
+			if(type==3)
+				content='上线通知';
+			else if(type==4)
+				content='下线通知';
+			var usersId = new Array();
+			for(var i=0;i<allRelations.length;i++){
+				usersId[i] = allRelations[i].userid;
+			}
+			sendMessage(content,usersId,type);
+		}
+		
+		function changeToOnlineStatus(content,from,to,type,time,message){
+			var onLineStatus = document.getElementById(from+'onlineStatus');
+			var offLineStatus = document.getElementById(from+'offlineStatus');
+			//判断如果找不到这个id，那么和普通消息一样放入缓存区
+			if(onLineStatus && type==3){
+				onLineStatus.style.opacity = 1;
+				offLineStatus.style.opacity = 0;
+			}
+			else if(offLineStatus && type==4){
+				onLineStatus.style.opacity = 0;
+				offLineStatus.style.opacity = 1;
+			}
+			else{
+				doMessageNotice(content,from, to,type, time,message);
+			}
+		}
+
+		//列出好友列表
+		var relationListIndex = null;
+		function listRelation() {
+			var allRelations = getAllRelations();
+			var allGroups = getUserAllGroups();
+			var html = '<div id="relationList" class="relation">'+
+				      '<div class="lists">'+
+					      '<ul class="nav nav-tabs">'+
+					        '<li class="active justifile text-center">'+
+					          '<a href="#relationPeople" data-toggle="tab">'+
+					           	 '联系列表'+
+					          '</a>'+
+					        '</li>'+
+					        '<li class="justifile text-center">'+
+					          '<a href="#groupPeople" data-toggle="tab">'+
+					           	' 群列表'+
+					          '</a>'+
+					        '</li>'+
+					      '</ul>'+
+				      '<div class="tab-content">'+
+				        '<div class="tab-pane fade in active" id="relationPeople">';
+			html+='<ul class="list-group no-bg no-borders auto m-t-n-xxs">';
+			 for(var i=0;i<allRelations.length;i++){
+			 	//注意！注意！注意！onclick后面调用的function里面的参数如果是字符串只能用单引号！！！！只能用单引号！
+			 	//血和泪的教训搞了好久才改过来这里的错误，哎。之前使用单引号对了，这里改成ajax时因为字符串拼接是单引号所以里面就用了双引号，结果一直错错错，而且还不说错哪儿了，哎
+			 	//现在想想也是，虽然js里面字符串单引号双引号都行，但是在html里面添加参数就不一样了！对于html来讲双引号是一个标签属性开始与结束的标志，而单引号没有意义，
+			 	//所以如果这里用了双引号会引起html语意混淆，单引号则没有问题，记笔记，记笔记。（js拼接字符串时使用\+字符，这个字符就会作为普通的字符串被拼接上啦！不会被认为是有特殊含义的）
+		
+				
+					 html+='<li class="list-group-item" onclick="chatWithSomeBody('+allRelations[i].userid+',\''+allRelations[i].name+'\',\''+allRelations[i].nickName+'\');">'+
+	                      '<span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">'+
+	                        '<img src="../image/h3.jpg" alt="..." class="img-circle">'+
+	                        '<i class="on b-light right sm"></i>'+
+	                      '</span>'+
+	                      '<div class="clear">'+
+	                        '<div id="currentNickName"><a href="#">'+allRelations[i].nickName+'</a></div>'+
+	                        '<small class="text-muted"><div id="'+allRelations[i].userid+'onlineStatus" class="onlineStatus">'+
+			            	'在线'+
+				            '</div>'+
+				            '<div id="'+allRelations[i].userid+'offlineStatus" class="offlineStatus">'+
+				            	'离线'+
+				            '</div></small>'+
+	                      '</div>'+
+	                      '<div class="recent">'+
+				            '</div>'+
+	                    '</li>'				
+			 }
+			 html+='</ul>';
+				html+='</div>'+
+				        '<div class="tab-pane fade" id="groupPeople">';
+			for(var i=0;i<allGroups.length;i++){     
+				html+='<div class="relationSingle" onclick="chatWithGroup('+allGroups[i].id+',\''+allGroups[i].groupId+'\',\''+allGroups[i].groupName+'\','+allGroups[i].groupCreaterId+');">'+
+					            '<div class="photoBox">'+
+					              '<img class="img-circle photo" src="../image/h3.jpg">'+
+					            '</div>'+
+					            '<div class="list">'+
+					              allGroups[i].groupName+
+					            '</div>'+
+					            '<div class="recent">'+
+					            '</div>'+
+					          '</div>';
+			}
+			html+='</div>'+
+				      '</div>'+
+				    '</div>'+
+				    '<div class="functions">'+
+				      '<div class="btn-group btn-group-justified">'+
+				        '<div class="btn-group">'+
+				          '<button type="button" class="btn btn-default" onclick="searchFriend();">添加好友</button>'+
+				        '</div>'+
+				        '<div class="btn-group">'+
+				          '<button type="button" class="btn btn-default" onclick="test();">测试</button>'+
+				        '</div>'+
+				        '<div class="btn-group">'+
+				          '<button type="button" class="btn btn-default" onclick="deleteFriend()">删除好友</button>'+
+				        '</div>'+
+				        '<div class="btn-group">'+
+				          '<button type="button" class="btn btn-default" onclick="createGroup()">创建群</button>'+
+				        '</div>'+
+				      '</div>'+
+				    '</div>'+
+				    '</div>';
+			relationListIndex = layer.open({
+				type : 1,
+				skin : 'layer-ext-lists',
+				title : [currentName,'font-family:Microsoft YaHei;font-size: 24px;height: 80px;'],
+				closeBtn : 1,
+				content : html,
+				area : [ '270px', '600px' ],
+				offset : 'rb',
+				anim : 2,
+				id :'relationList',
+				shade : 0,
+				zIndex: layer.zIndex,
+				success: function(layero){
+				   layer.setTop(layero);
+				}
+			});
+			for(var i=0;i<allRelations.length;i++){
+				var onLineStatus = document.getElementById(allRelations[i].userid+'onlineStatus');
+				var offLineStatus = document.getElementById(allRelations[i].userid+'offlineStatus');
+				if(allRelations[i].userIsOnline == 0){
+					onLineStatus.style.opacity = 0;
+					offLineStatus.style.opacity = 1;
+				}
+				else{
+					onLineStatus.style.opacity = 1;
+					offLineStatus.style.opacity = 0;
+				}
+			}
+		}
+		//搜索/添加好友
+		function searchFriend() {
+			layer.prompt({
+				title : '请输入用户名：',
+				zIndex : 20000000
+			}, function(userName, index) {
+				layer.close(index);
+				findUser(userName);
+			});
+		}
+
+		function findUser(userName) {
+			var findUser = {};
+			findUser.userName = userName;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../user/doFindUserByName',
+				data : findUser,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult.userId != null) {
+						addFriend(resoult.userId, resoult.userName,resoult.userNickName);
+					} else {
+						layer.msg('查找的人不存在', {
+							icon : 6,
+							zIndex : 20000001,
+							time : 2000
+						});
+					}
+				},
+				error : function(resoult) {
+					layer.msg('查找失败', {
+						icon : 6,
+						zIndex : 20000001,
+						time : 2000
+					});
+				}
+			});
+		}
+		
+		var addFriendIndex = null;
+		function addFriend(userId, userName, userNickName) {
+			var html = '<div id="addFriend" class="addFriend">'
+					+ '<div class="container addFriendBox">'
+					+ '<div class="row addFriendRow">'
+					+ '<div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 addFriendImgBox">'
+					+ '<img src="../image/h3.jpg" class="img-circle addFriendImg">'
+					+ '</div>'
+					+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+					+ '用&nbsp;&nbsp;户&nbsp;&nbsp;名：'
+					+ userName
+					+ '</div>'
+					+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+					+ '昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：'
+					+ userNickName
+					+ '</div>'
+					+ '<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 addFriendInfo">'
+					+ '附加消息：'
+					+ '<textarea id="addFriendMessage" class="form-control addFriendTextArea" rows="2"></textarea>'
+					+ '</div>'
+					+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+					+ '<button class="btn btn-default" onclick=\'addThisUser('+userId+')\'>建立联系</button>'
+					+ '</div>' + '</div>' + '</div>' + '</div>';
+			addFriendIndex = layer.open({
+				type : 1,
+				title : '查找结果',
+				content : html,
+				area : [ '500px', '275px' ],
+				resize : false,
+				id : 'addFriend',
+				zIndex : 20000001
+			});
+		};
+		
+		function addThisUser(userId){
+			var text = document.getElementById('addFriendMessage').value;
+			var usersId = new Array();
+			usersId[0] = userId;
+			sendMessage(text,usersId,5);
+			layer.close(addFriendIndex);
+		}
+		
+		var relationApply= null;
+		var relationApplyNumber = 0;
+
+		function agreeAddThisUser(userId){
+			var text = '';
+			var addUser = {};
+			addUser.userIdA = userId;
+			addUser.userIdB = currentId;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../userRelation/buildRelation',
+				data : addUser,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult.resoult == 'success') {
+						text = '我已经同意了你的好友申请，快一起来搞点事情吧！';
+					} else {
+						text = '奈何落花有意流水无情啊！';
+					}
+				},
+				error : function(resoult) {
+					layer.msg('添加失败', {
+						icon : 6,
+						zIndex : 20000001,
+						time : 2000
+					});
+				}
+			});
+			var usersId = new Array();
+			usersId[0] = userId;
+			sendMessage(text,usersId,-1);
+			var addFriendRow = document.getElementById(userId+'addFriendRow');
+			addFriendRow.style.display = 'none';
+			relationApplyNumber--;
+			if(relationApplyNumber == 0)
+				layer.close(relationApply);
+			//刷新好友列表
+			var relationList = document.getElementById('relationList');
+			if(relationList){
+				layer.close(relationListIndex);
+			}
+		}
+		
+		function refuseAddThisUser(userId){
+			
+			//var text = '落花有意，流水无情。相见想闻，不如不见不闻。';
+			var text = '相见不如思念，还是不要相加了吧！';
+			var usersId = new Array();
+			usersId[0] = userId;
+			sendMessage(text,usersId,-1);
+			var addFriendRow = document.getElementById(userId+'addFriendRow');
+			addFriendRow.style.display = 'none';
+			relationApplyNumber--;
+			if(relationApplyNumber == 0)
+				layer.close(relationApply);
+		}
+		
+		function openRelationApply(content, from, to,type,time,message){
+				var fromUser = null;
+				var findUser = {};
+				findUser.userId = from;
+				$.ajax({
+					async : false, //设置同步
+					type : 'POST',
+					url : '../user/doFindUserById',
+					data : findUser,
+					dataType : 'json',
+					success : function(resoult) {
+						if (resoult.userId != null) {
+							fromUser = resoult;
+						}
+						else{
+							layer.alert('查询错误');
+						}
+					},
+					error : function(resoult) {
+						layer.alert('查询错误');
+					}
+					});
+				var addFriendApply = document.getElementById('addFriendApply');
+				if(!addFriendApply){
+						var html = '<div id="addFriendApply" class="addFriend">'
+								+ '<div id="friendApplyBox" class="container addFriendBox">'
+								+ '</div>' 
+								+ '</div>';
+						relationApply = layer.open({
+							type : 1,
+							title : '系统消息',
+							content : html,
+							area : [ '500px', '275px' ],
+							shade: 0,
+							resize : false,
+							zIndex: layer.zIndex,
+							success: function(layero){
+							   layer.setTop(layero);
+							}
+						});
+				}
+				relationApplyNumber++;
+				if(type == 5)
+					var friendApplyHtml= '<div id="'+from+'addFriendRow" class="row addFriendRow">'
+							+ '<div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 addFriendImgBox">'
+							+ '<img src="../image/h3.jpg" class="img-circle addFriendImg">'
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '用&nbsp;&nbsp;户&nbsp;&nbsp;名：'
+							+ fromUser.userName
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：'
+							+ fromUser.userNickName
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '附加消息：'
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ content
+							+ '</div>'
+							+ '<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 addFriendInfo">'
+							+ '<button class="btn btn-default" onclick=\'agreeAddThisUser('+from+')\'>同意添加 </button>'
+							+ '</div>' 
+							+ '<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 addFriendInfo">'
+							+ '<button class="btn btn-default" onclick=\'refuseAddThisUser('+from+')\'>残忍拒绝</button>'
+							+ '</div>' 
+							+ '</div>';
+				else if(type ==6){
+					var group = ajaxGetGroupById(content);
+					friendApplyHtml= '<div id="'+group.id+'addFriendRow" class="row addFriendRow">'
+							+ '<div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 addFriendImgBox">'
+							+ '<img src="../image/h3.jpg" class="img-circle addFriendImg">'
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '群&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：'
+							+ group.groupId
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '群&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：'
+							+ group.groupName
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '类型：入群邀请'
+							+ '</div>'
+							+ '<div class="col-md-7 col-sm-7 col-xs-7 col-lg-7 addFriendInfo">'
+							+ '邀请人：'
+							+fromUser.userNickName
+							+ '</div>'
+							+ '<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 addFriendInfo">'
+							+ '<button class="btn btn-default" onclick=\'agreeGroupInvite('+content+')\'>进去看看</button>'
+							+ '</div>' 
+							+ '<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 addFriendInfo">'
+							+ '<button class="btn btn-default" onclick=\'refuseGroupInvite('+content+')\'>不感兴趣</button>'
+							+ '</div>' 
+							+ '</div>';
+				}
+				var friendApplyBox = document.getElementById('friendApplyBox');
+				friendApplyBox.innerHTML += friendApplyHtml;
+		}
+		
+		//ajax获取两用户之间的消息记录
+		function getMessageRecordBetweenUsers(userId){
+			var allMessages = null;
+			var twoUser = {};
+			twoUser.userIdA = currentId;
+			twoUser.userIdB = userId;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../message/getMessageRecordBetweenUsers',
+				data : twoUser,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult!=null) {
+						allMessages = resoult.resoult;
+					}
+					else{
+						layer.alert('查询错误');
+					}
+				},
+				error : function(resoult) {
+					layer.alert('查询错误');
+				}
+				});
+			//划重点划重点，这里的eval方法不同于prase方法，外面加括号
+			allMessages = eval("("+allMessages+")");
+			return allMessages;
+		}
+
+		//单人聊天窗口
+		function chatWithSomeBody(userId, userName, userNickName) {
+			var chatWith = '<div class="chatWith">'
+					+ '<div id="'+userId+'output" class="container output">'
+					+ '</div>'
+					+ '<hr/>'
+					+ '<div class="options">'
+					+ '<img class="option" src="../image/face.png">'
+					+ '<img class="option" src="../image/img.png">'
+					+ '<button type="button" class="btn btn-default pull-right" onclick="sendMessagePre('
+					+ userId
+					+ ')">发送</button>'
+					+ '</div>'
+					+ '<div class="input">'
+					+ '<textarea id="'
+					+ userId
+					+ 'messageText" class="form-control" onkeydown="binfEnter(event,'
+					+ userId + ')"></textarea>' + '</div>' + '</div>';
+			layer.open({
+				type : 1,
+				title : [userNickName,'font-family:Microsoft YaHei;font-size: 24px;height: 80px;'],
+				content : chatWith,
+				area : [ '500px', '500px' ],
+				maxmin : true,
+				offset : [ '100px', '100px' ],
+				shade : 0,
+				id : userId,
+				resize : true,
+				zIndex : layer.zIndex,
+				success : function(layero) {
+					layer.setTop(layero);
+				}
+			});
+			
+			//获取消息记录
+			var allMessages = getMessageRecordBetweenUsers(userId);
+			for(var i=0;i<allMessages.length;i++){
+				var usersId = new Array();
+				usersId[0] = allMessages[i].to;
+				var jsonMessage = JSON.stringify({
+					from : allMessages[i].from,
+					to : usersId,
+					content : allMessages[i].content,
+					type : allMessages[i].type,
+					time : allMessages[i].time
+				});
+				showReceiveMessage(allMessages[i].content, allMessages[i].from, usersId, allMessages[i].type, allMessages[i].time, jsonMessage);
+			}
+		}
+		//监听输入框回车键
+		function binfEnter(obj, toUserId) {
+			if (obj.keyCode == 13) {
+				sendMessagePre(toUserId);
+				obj.preventDefault();
+			}
+		}
+		//发送消息传递准备工作
+		function sendMessagePre(toUserId) {
+			var textAreaId = toUserId + 'messageText';
+			var message = document.getElementById(textAreaId).value;
+			if(message != ''){
+				var toUsersId = new Array();
+				toUsersId[0] = toUserId;
+				sendMessage(message, toUsersId ,0);
+				document.getElementById(textAreaId).value = '';
+			}
+		}
+		
+		//下面是关于群组的窗口和操作
+		
+		//获取某人的所有群
+		function getUserAllGroups(){
+			var allGroups = null;
+			var currentUser = {};
+			currentUser.userId = currentId;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../userGroup/getUserGroups',
+				data : currentUser,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult!=null) {
+						allGroups = resoult.groups;
+					}
+					else{
+						layer.alert('查询错误');
+					}
+				},
+				error : function(resoult) {
+					layer.alert('查询错误');
+				}
+				});
+			//划重点划重点，这里的eval方法不同于prase方法，外面加括号
+			allGroups = eval("("+allGroups+")");
+			return allGroups;	
+		}
+		
+		//获取某群的所有人
+		function getGroupAllUsers(id){
+			var usersAndUserGroup= {};
+			var currentGroup = {};
+			currentGroup.id = id;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../userGroup/getGroupUsers',
+				data : currentGroup,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult!=null) {
+						usersAndUserGroup.userGroups = resoult.userGroups;
+						usersAndUserGroup.users = resoult.users;
+					}
+					else{
+						layer.alert('查询错误');
+					}
+				},
+				error : function(resoult) {
+					layer.alert('查询错误');
+				}
+				});
+			usersAndUserGroup.userGroups = eval("("+usersAndUserGroup.userGroups+")");
+			usersAndUserGroup.users = eval("("+usersAndUserGroup.users+")");
+			return usersAndUserGroup;	
+		}
+		
+		//创建群的窗口
+		var createGroupIndex = null;
+		function createGroup(){
+		//此处留待添加群头像上传的功能
+        var html = '<div class="createGroup">'
+          + '<div class="container createGroupBox">'
+          + '<div class="row createGroupRow">'
+          + '<div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 createGroupImgBox">'
+          + '<img src="../image/h3.jpg" class="img-circle createGroupImg">'
+          + '</div>'
+          + '<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 createGroupInfo">'
+          + '群&nbsp;&nbsp;名&nbsp;&nbsp;称：' 
+          + '</div>'
+          + '<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 createGroupInfo">'
+          + '<input id="createGroupName" type="text" class="form-control" placeholder="作死小分队">'
+          + '</div>'
+          + '<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 createGroupInfo">'
+          + '群描述：'
+          + '<textarea id="createGroupIntroduction" class="form-control createGroupTextArea" placeholder="生命不息，作死不止！" rows="2"></textarea>'
+          + '</div>'
+          + '<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 createGroupInfo">'
+          + '<button class="btn btn-default" onclick="ajaxCreateGroup()">建立群组</button>'
+          + '</div>' 
+          + '</div>' 
+          + '</div>' 
+          + '</div>';
+        createGroupIndex = layer.open({
+          type:1,
+          title:'创建群组',
+          content:html,
+          area:['500px','275px'],
+          resize:false,
+          zIndex:layer.zIndex,
+          success:function(layero){
+            layer.setTop(layero);
+          }
+        });
+      }
+      
+      //创建群的操作
+      function ajaxCreateGroup(){
+      	if(createGroupIndex!=null){
+      		var createGroup = {};
+			createGroup.groupName = document.getElementById('createGroupName').value;
+			createGroup.groupIntroduction = document.getElementById('createGroupIntroduction').value;
+			createGroup.groupCreaterId = currentId;
+			layer.close(createGroupIndex);
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../group/createGroup',
+				data : createGroup,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult.resoult !=null) {
+						layer.alert('创建群组成功,你的群id为：'+resoult.resoult);
+					} else {
+						layer.msg('创建群组失败', {
+						icon : 2,
+						zIndex : 20000001,
+						time : 2000
+					});
+					}
+				},
+				error : function(resoult) {
+					layer.msg('创建群组发生错误', {
+						icon : 2,
+						zIndex : 20000001,
+						time : 2000
+					});
+				}
+			});
+		}
+		else{
+			layer.msg('创建群组发出的请求参数不完整，请重新创建', {
+						icon : 2,
+						zIndex : 20000001,
+						time : 2000
+					});
+		}
+      }
+      
+      //ajax获取单个用户与群组的聊天记录
+      function getMessageRecordBetweenUserAndGroup(id){
+      	var allMessages = null;
+			var userGroup = {};
+			userGroup.userId = currentId;
+			userGroup.id = id;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../message/getMessageRecordBetweenUserAndGroup',
+				data : userGroup,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult!=null) {
+						allMessages = resoult.resoult;
+					}
+					else{
+						layer.alert('查询错误');
+					}
+				},
+				error : function(resoult) {
+					layer.alert('查询错误');
+				}
+				});
+			//划重点划重点，这里的eval方法不同于prase方法，外面加括号
+			allMessages = eval("("+allMessages+")");
+			return allMessages;
+      }
+
+		//群组聊天窗口
+		function chatWithGroup(id, groupId, groupName,groupCreaterId) {
+			var chatWith = '<div class="chatWith">'
+					+ '<div id="'+id+'outputGroup" class="container output">'
+					+ '</div>'
+					+ '<hr/>'
+					+ '<div class="options">'
+					+ '<img class="option" src="../image/face.png">'
+					+ '<img class="option" src="../image/img.png">'
+					+ '<button type="button" class="btn btn-default pull-right" onclick="sendGroupMessagePre('
+					+ id
+					+ ')">发送</button>'
+					+'<button type="button" class="btn btn-default pull-right smallOffset" onclick="groupUserList('+id+')">查看群成员</button>';
+			if(groupCreaterId == currentId)
+				chatWith+='<button type="button" class="btn btn-default pull-right smallOffset" onclick="groupInvite('+id+')">邀请新成员</button>';		
+			chatWith+= '</div>'
+					+'<div class="input">'
+					+ '<textarea id="'
+					+ id
+					+ 'messageTextGroup" class="form-control" onkeydown="binfEnterGroup(event,'
+					+ id + ')"></textarea>' + '</div>' + '</div>';
+			layer.open({
+				type : 1,
+				title : [groupName,'font-family:Microsoft YaHei;font-size: 24px;height: 80px;'],
+				content : chatWith,
+				area : [ '500px', '500px' ],
+				maxmin : true,
+				offset : [ '100px', '100px' ],
+				shade : 0,
+				id : groupId,
+				resize : true,
+				zIndex : layer.zIndex,
+				success : function(layero) {
+					layer.setTop(layero);
+				}
+			});
+			
+			//获取消息记录
+			var allMessages = getMessageRecordBetweenUserAndGroup(id);
+			for(var i=0;i<allMessages.length;i++){
+				var usersId = new Array();
+				usersId[0] = id;
+				usersId[1] = allMessages[i].to;
+				var jsonMessage = JSON.stringify({
+					from : allMessages[i].from,
+					to : usersId,
+					content : allMessages[i].content,
+					type : allMessages[i].type,
+					time : allMessages[i].time
+				});
+				showReceiveMessage(allMessages[i].content, allMessages[i].from, usersId, allMessages[i].type, allMessages[i].time, jsonMessage);
+			}
+		}
+		//监听群聊输入框回车键
+		function binfEnterGroup(obj, id) {
+			if (obj.keyCode == 13) {
+				sendGroupMessagePre(id);
+				obj.preventDefault();
+			}
+		}
+		
+		function ajaxGetGroupById(id){
+			var group = null; 
+			var groups = {};
+			groups.id = id;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../group/findGroupById',
+				data : groups,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult.resoult !=null) {
+						group = resoult.resoult;
+					} else {
+						layer.msg('打开群组失败', {
+						icon : 2,
+						zIndex : 20000001,
+						time : 2000
+					});
+					}
+				},
+				error : function(resoult) {
+					layer.msg('打开群组发生错误', {
+						icon : 2,
+						zIndex : 20000001,
+						time : 2000
+					});
+				}
+			});
+			group = eval("("+group+")");
+			return group;
+		}
+		//发送群聊消息传递准备工作
+		function sendGroupMessagePre(id) {
+			var group = ajaxGetGroupById(id);
+			
+			var textAreaId = id + 'messageTextGroup';
+			var message = document.getElementById(textAreaId).value;
+			if(message != ''){
+				var toUsersIdString = new Array();
+				toUsersIdString = (group.groupMembers).split(',');
+				var toUsersId = new Array();
+				for(var i=0;i<toUsersIdString.length;i++){
+					toUsersId[i] = parseInt(toUsersIdString[i]);
+				}
+				sendMessage(message, toUsersId ,1);
+				document.getElementById(textAreaId).value = '';
+			}
+		}
+		
+		//加群邀请好友名单
+		function groupInvite(id){
+			var allRelations = getAllRelations();
+			var html='<div class="groupInviteList">'+
+					'<table class="table table-striped table-hover">'+
+			        '<tr>'+
+			          '<th>#</th>'+
+			          '<th>用户名</th>'+
+			          '<th>昵称</th>'+
+			          '<th>邀请</th>'+
+			        '</tr>';
+			for(var i=0;i<allRelations.length;i++){
+				html+=  '<tr>'+
+				          '<td>'+
+				          (i+1)+
+				          '</td>'+
+				          '<td>'+allRelations[i].name+'</td>'+
+				          '<td>'+allRelations[i].nickName+'</td>'+
+				          '<td>'+
+				          '<button type="button" class="btn btn-default" onclick="groupInviteUser('+id+','+allRelations[i].userid+')">邀请入群</button>'
+				          '</td>'+
+				        '</tr>';
+			}
+			html+= '</table>'+
+					'</div>';
+			layer.open({
+	          type:1,
+	          title:'邀请好友入群',
+	          content:html,
+	          area:['400px','600px'],
+	          resize:false,
+	          zIndex:layer.zIndex,
+	          success:function(layero){
+	            layer.setTop(layero);
+	          }
+	        });
+		}
+		
+		function groupInviteUser(id,userId){
+			var message = id;
+			var toUsersId = new Array();
+			toUsersId[0] = userId;
+			sendMessage(message, toUsersId ,6);
+		}
+		
+		//同意加群邀请
+		function agreeGroupInvite(id){
+			var addGroup = {};
+			addGroup.id = id;
+			addGroup.userId = currentId;
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../userGroup/addGroupUsers',
+				data : addGroup,
+				dataType : 'json',
+				success : function(resoult) {
+					if (resoult.resoult == 'success') {
+						
+					} else {
+						text = '不好意思，反弹，不加！';
+					}
+				},
+				error : function(resoult) {
+					layer.msg('添加失败', {
+						icon : 6,
+						zIndex : 20000001,
+						time : 2000
+					});
+				}
+			});
+			var addFriendRow = document.getElementById(id+'addFriendRow');
+			addFriendRow.style.display = 'none';
+			relationApplyNumber--;
+			if(relationApplyNumber == 0)
+				layer.close(relationApply);
+		}
+		
+		//拒绝加群邀请
+		function refuseGroupInvite(id){
+			var addFriendRow = document.getElementById(id+'addFriendRow');
+			addFriendRow.style.display = 'none';
+			relationApplyNumber--;
+			if(relationApplyNumber == 0)
+				layer.close(relationApply);
+		}
+		
+		//列出群成员
+		function groupUserList(id){
+			var usersAndUserGroup = getGroupAllUsers(id);
+			var users = usersAndUserGroup.users;
+			var userGroup = usersAndUserGroup.userGroups;
+			var html='<div class="groupInviteList">'+
+					'<table class="table table-striped table-hover">'+
+			        '<tr>'+
+			          '<th>#</th>'+
+			          '<th>用户名</th>'+
+			          '<th>昵称</th>'+
+			          '<th>群昵称</th>'+
+			          '<th>等级</th>'+
+			          '<th>进群时间</th>'+
+			        '</tr>';
+			for(var i=0;i<users.length;i++){
+				html+=  '<tr>'+
+				          '<td>'+
+				          (i+1)+
+				          '</td>'+
+				          '<td>'+users[i].name+'</td>'+
+				          '<td>'+users[i].nickName+'</td>'+
+				          '<td>'+userGroup[i].groupUserNickName+'</td>'+
+				          '<td>'+userGroup[i].groupLevel+'</td>'+
+				          '<td>'+userGroup[i].enterGroupTime+'</td>'+
+				        '</tr>';
+			}
+			html+= '</table>'+
+					'</div>';
+			layer.open({
+	          type:1,
+	          title:'邀请好友入群',
+	          content:html,
+	          area:['500px','600px'],
+	          resize:false,
+	          zIndex:layer.zIndex,
+	          success:function(layero){
+	            layer.setTop(layero);
+	          }
+	        });
+		}
+	  //测试
+	  function test() {
+		addFriend(1, '测试', '测试');
+	  }
+	//删除好友名单
+	var deleteFriendIndex = null;
+		function deleteFriend(){
+			var allRelations = getAllRelations();
+			var html='<div class="groupInviteList">'+
+					'<table class="table table-striped table-hover">'+
+			        '<tr>'+
+			          '<th>#</th>'+
+			          '<th>用户名</th>'+
+			          '<th>昵称</th>'+
+			          '<th>删除</th>'+
+			        '</tr>';
+			for(var i=0;i<allRelations.length;i++){
+				html+=  '<tr>'+
+				          '<td>'+
+				          (i+1)+
+				          '</td>'+
+				          '<td>'+allRelations[i].name+'</td>'+
+				          '<td>'+allRelations[i].nickName+'</td>'+
+				          '<td>'+
+				          '<button type="button" class="btn btn-default" onclick="removeFriend('+allRelations[i].userid+')">删除好友</button>'
+				          '</td>'+
+				        '</tr>';
+			}
+			html+= '</table>'+
+					'</div>';
+		deleteFriendIndex = layer.open({
+	          type:1,
+	          title:'选择好友删除',
+	          content:html,
+	          area:['400px','500px'],
+	          resize:false,
+	          zIndex:layer.zIndex,
+	          success:function(layero){
+	            layer.setTop(layero);
+	          }
+	        });
+		}
+		function removeFriend(userId){					
+			$.ajax({
+				async : false, //设置同步
+				type : 'POST',
+				url : '../userRelation/removeRelation',
+				data :{"userId":userId,"currentUser":currentId},
+				success:function(){	
+					layer.close(deleteFriendIndex);
+					listRelation();
+				}
+			});
+		}
+	  
+	</script>
+</body>
+<div id="lyricContainer" style="background:url('../image/p1.jpg');color:#499be2;font-size:16px;
+	background-repeat:no-repeat;background-size:100% 100%;">	
+	
+</div>
+<!-- 歌曲评论模态框 -->
+<div class="modal fade" id="MyReplies" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:60%;margin:0 auto;">
+				<div class="modal-header" id="yhysreplies" style="background-color:#33a6e5;color:#fff;padding:6px;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size:29px;opacity:1;color:#fff">
+						&times;
+					</button>
+					<h4 class="modal-title">
+						评论当前歌曲
+					</h4>
+				</div>
+				<div class="modal-body">		
+					<div>您的评论内容：
+					<textarea  id="m_replies" style="overflow:auto;width:100%;margin:0 auto;padding:5px 60px 40px 5px;border:1px solid #33b7b8"></textarea>					
+					</div>					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="clear_replies">清除
+					</button>
+					<button type="button" class="btn btn-primary" id="confirm_replies">
+						确认
+					</button>
+				</div>
+				<div class="modal-body" id="modal-details" style="padding-top:0">															
+					<div class="replies" Style="border:1px solid #ccc;background-color:#d8d9ff">
+						
+					</div>				
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>	
+	<!-- 修改个人信息 -->
+	<div class="modal fade" id="changeInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:60%;margin:0 auto;">
+            <div class="modal-header" style="background-color:#33a6e5;color:#fff;padding:10px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true" style="font-size:29px;opacity:1;color:#fff">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
+            </div>
+            <div class="modal-body">
+            	<div class="form-group">
+                    <input type="text"  readonly="readonly" class="form-control" id="username" placeholder="用户名">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nickname" placeholder="昵称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="sex" placeholder="性别">
+                </div> 
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="密码">
+                </div>                                             
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="save">保存</button>
+            </div>
+        </div>
+    </div>
+	</div>
+</html>

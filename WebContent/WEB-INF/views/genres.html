@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>SusieMusic | Communication</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../js/jPlayer/jplayer.flat.css" type="text/css" />
+  <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../css/app.css" type="text/css" />  
+	<!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+  <script src="../js/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="../js/app.js"></script>  
+  <script src="../js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../js/app.plugin.js"></script>
+  <script type="text/javascript" src="../js/jPlayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="../js/jPlayer/add-on/jplayer.playlist.min.js"></script>
+  <script type="text/javascript" src="../js/jPlayer/demo.js"></script>
+  <script src="../js/layer.min.js"></script>
+  <script type="text/javascript" src="../js/query.js"></script>
+  <script type="text/javascript" src="../js/music.js"></script>
+   <script type="text/javascript" src="../js/turn.js"></script>
+</head>
+<body class="">
+  <section class="vbox">
+    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+      <div class="navbar-header aside bg-info dk nav-xs">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+          <i class="icon-list"></i>
+        </a>
+        <a href="javascript:;" class="navbar-brand text-lt" onclick="turnlogin()">
+          <i class="icon-earphones"></i>
+          <img src="../image/logo.png" alt="." class="hide">
+          <span class="hidden-nav-xs m-l-sm">音乐</span>
+        </a>
+        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+          <i class="icon-settings"></i>
+        </a>
+      </div>      <ul class="nav navbar-nav hidden-xs">
+        <li>
+          <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+            <i class="fa fa-indent text"></i>
+            <i class="fa fa-dedent text-active"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-sm bg-white btn-icon rounded"  onclick="titleQuery()" ><i class="fa fa-search"></i></button>
+            </span>
+            <input id="titleQuery" type="text" class="form-control input-sm no-border rounded" placeholder="搜索歌曲，专辑...">
+          </div>
+        </div>
+      </div>
+      <div class="navbar-right ">
+        <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+          <li class="hidden-xs">
+            <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
+              <i class="icon-bell"></i>
+              <span class="badge badge-sm up bg-danger count">2</span>
+            </a>
+            <section class="dropdown-menu aside-xl animated fadeInUp">
+              <section class="panel bg-white">
+                <div class="panel-heading b-light bg-light">
+                  <strong>您有 <span class="count">2</span> 条新消息</strong>
+                </div>
+                <div class="list-group list-group-alt">
+                  <a href="#" class="media list-group-item">
+                    <span class="pull-left thumb-sm">
+                      <img src="../image/a0.png" alt="..." class="img-circle">
+                    </span>
+                    <span class="media-body block m-b-none">
+                      Use awesome animate.css<br>
+                      <small class="text-muted">10 minutes ago</small>
+                    </span>
+                  </a>
+                  <a href="#" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      1.0 initial released<br>
+                      <small class="text-muted">1 hour ago</small>
+                    </span>
+                  </a>
+                </div>
+                <div class="panel-footer text-sm">
+                  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                  <a href="#notes" data-toggle="class:show animated fadeInRight">查看所有新消息</a>
+                </div>
+              </section>
+            </section>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="../image/logo2.png" alt="...">
+              </span>
+              <span id="usersession"></span><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight">            
+              <li>
+                <span class="arrow top"></span>
+                <a href="javascript:;" onclick="setting()">设置</a>
+              </li>
+              <li>
+                <a href="profile">我的信息</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge bg-danger pull-right">3</span>
+                  通知
+                </a>
+              </li>
+              <li>
+                <a href="docs">帮助</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="../index.html">退出</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>      
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-dark dk nav-xs aside hidden-print" id="nav">          
+          <section class="vbox">
+            <section class="w-f-md scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+                
+
+
+                <!-- nav -->                 
+                <nav class="nav-primary hidden-xs">
+                  <ul class="nav bg clearfix">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      发现
+                    </li>
+                    <li id="uumanage" style="display:block">
+                      <a href="manage">
+                        <i class="icon-disc icon  "></i>
+                        <span class="font-bold">管理员</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="genres">
+                        <i class="icon-music-tone-alt icon  "></i>
+                        <span class="font-bold">主题歌曲</span>
+                      </a>
+                    </li>
+                    <li id="event" style="display:block">
+                      <a href="events">
+                        <i class="icon-drawer icon  "></i>
+                        <b class="badge bg-primary pull-right">6</b>
+                        <span class="font-bold">广场</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="listen">
+                        <i class="icon-list icon   "></i>
+                        <span class="font-bold">乐听</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="video" data-target="#content" data-el="#bjax-el" data-replace="true">
+                        <i class="icon-social-youtube icon   "></i>
+                        <span class="font-bold">视频</span>
+                      </a>
+                    </li>
+                    <li class="m-b hidden-nav-xs"></li>
+                  </ul>
+                  <ul class="nav" data-ride="collapse">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      接口
+                    </li>
+                    
+                    <li >
+                      <a href="#" class="auto">
+                        
+                        <i class="icon-grid icon">
+                        </i>
+                        <span>网页</span>
+                      </a>
+                      </li>
+                        <li >
+                          <a href="profile" class="auto">                                                        
+                            <i class="fa fa-angle-right text-xs"></i>
+
+                            <span>个人展示</span>
+                          </a>
+                        </li>
+           
+                  </ul>
+                  <ul class="nav text-sm">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      <span class="pull-right"><a href="#"><i class="icon-plus i-lg"></i></a></span>
+                     我的歌单
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-music-tone icon"></i>
+                        <span>我喜欢的歌</span>
+                      </a>
+                    </li>                   
+                  </ul>
+                </nav>
+                <!-- / nav -->
+              </div>
+            </section>
+            
+            <footer class="footer hidden-xs no-padder text-center-nav-xs">
+              <div class="bg hidden-xs ">
+                  <div class="dropdown dropup wrapper-sm clearfix">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb-sm avatar pull-left m-l-xs" onclick="showWords()">                        
+                        <img src="../image/a3.png" class="dker" alt="...">
+                        <i class="on b-black"></i>
+                      </span>
+                      <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="font-bold text-lt">苏苏</strong> 
+                          <b class="caret"></b>
+                        </span>
+                        <span class="text-muted text-xs block m-l">Art Director</span>
+                      </span>
+                    </a>                 
+                  </div>
+                </div>            </footer>
+          </section>
+        </aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="vbox">
+            <section class="w-f-md" id="bjax-target">
+              <section class="hbox stretch">
+                <!-- side content -->
+                <aside class="aside bg-light dk" id="sidebar">
+                  <section class="vbox animated fadeInUp">
+                    <section class="scrollable hover">
+                      <div class="list-group no-radius no-border no-bg m-t-n-xxs m-b-none auto">
+                
+                        <span class="list-group-item active">
+                          原创
+                        </span>
+                        <span class="list-group-item">
+                          流行
+                        </span>
+                        <span class="list-group-item">
+                          古风
+                        </span>
+                        <span class="list-group-item">
+                          经典
+                        </span>
+                        <span class="list-group-item">
+                          民谣
+                        </span>
+                        <span class="list-group-item">
+                          摇滚
+                        </span>
+                        <span class="list-group-item">
+						  爵士
+                        </span>
+                        <span class="list-group-item">
+                          童歌
+                        </span>                        
+                      </div>
+                    </section>
+                  </section>
+                </aside>
+                <!-- / side content -->
+                <section>
+                  <section class="vbox">
+                    <section class="scrollable padder-lg">                   
+                      <h2 class="font-thin m-b" id="kt">原创</h2>
+                      <div class="row row-sm" id="kind">
+                                                                                                                                                                   
+                      </div>
+                     
+                      <ul class="pagination pagination">
+                        <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                      </ul>
+                    </section>                    
+                  </section>
+                </section>
+              </section>
+            </section>
+            <footer class="footer bg-info dker">
+              <div id="jp_container_N">
+                    <div class="jp-type-playlist">
+                      <div id="jplayer_N" class="jp-jplayer hide"></div>
+                      <div class="jp-gui">
+                        <div class="jp-video-play hide">
+                          <a class="jp-video-play-icon">play</a>
+                        </div>
+                        <div class="jp-interface">
+                          <div class="jp-controls">
+                            <div><a class="jp-previous"><i class="icon-control-rewind i-lg"></i></a></div>
+                            <div>
+                              <a class="jp-play"><i class="icon-control-play i-2x"></i></a>
+                              <a class="jp-pause hid"><i class="icon-control-pause i-2x"></i></a>
+                            </div>
+                            <div><a class="jp-next"><i class="icon-control-forward i-lg"></i></a></div>
+                            <div class="hide"><a class="jp-stop"><i class="fa fa-stop"></i></a></div>
+                            <div><a class="" data-toggle="dropdown" data-target="#playlist"><i class="icon-list"></i></a></div>
+                            <div class="jp-progress hidden-xs">
+                              <div class="jp-seek-bar dk">
+                                <div class="jp-play-bar bg-info">
+                                </div>
+                                <div class="jp-title text-lt">
+                                  <ul>
+                                    <li></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="hidden-xs hidden-sm jp-current-time text-xs text-muted"></div>
+                            <div class="hidden-xs hidden-sm jp-duration text-xs text-muted"></div>
+                            <div class="hidden-xs hidden-sm">
+                              <a class="jp-mute" title="mute"><i class="icon-volume-2"></i></a>
+                              <a class="jp-unmute hid" title="unmute"><i class="icon-volume-off"></i></a>
+                            </div>
+                            <div class="hidden-xs hidden-sm jp-volume">
+                              <div class="jp-volume-bar dk">
+                                <div class="jp-volume-bar-value lter"></div>
+                              </div>
+                            </div>
+                            <div>
+                              <a class="jp-shuffle" title="shuffle"><i class="icon-shuffle text-muted"></i></a>
+                              <a class="jp-shuffle-off hid" title="shuffle off"><i class="icon-shuffle text-lt"></i></a>
+                            </div>
+                            <div>
+                              <a class="jp-repeat" title="repeat"><i class="icon-loop text-muted"></i></a>
+                              <a class="jp-repeat-off hid" title="repeat off"><i class="icon-loop text-lt"></i></a>
+                            </div>
+                            <div class="hide">
+                              <a class="jp-full-screen" title="full screen"><i class="fa fa-expand"></i></a>
+                              <a class="jp-restore-screen" title="restore screen"><i class="fa fa-compress text-lt"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="jp-playlist dropup" id="playlist">
+                        <ul class="dropdown-menu aside-xl dker">
+                          <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+                          <li class="list-group-item"></li>
+                        </ul>
+                      </div>
+                      <div class="jp-no-solution hide">
+                        <span>Update Required</span>
+                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                      </div>
+                    </div>
+                  </div>
+            </footer>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+        </section>
+      </section>
+    </section>    
+  </section>
+  
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 		var username = null;
+ 		$.get("getsession",function(data){ 			
+ 		username=data.nickName;
+ 		user = data.userid;
+ 		$("#usersession")[0].innerText = username;
+ 		});
+ 	});
+ </script>
+
+</body>
+<div id="lyricContainer" style="background:url('../image/p1.jpg');color:#499be2;font-size:16px;
+	background-repeat:no-repeat;background-size:100% 100%;">	
+	
+</div>
+</html>

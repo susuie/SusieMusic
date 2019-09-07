@@ -1,0 +1,27 @@
+.logo{
+	width:100%;
+	height:100px;
+	background-color:#96d2de;
+}
+.logo ul{
+	margin:0;padding:0;
+	width:100%;
+	height:100%;
+	list-style-type:none;
+}
+.logo ul li{
+	margin:0;
+	padding:0;
+	float:left;
+	height:10px;
+	line-height:100px;
+	color:white;
+}
+.logo ul li img{
+	width:100%;
+	height:80%;
+}
+.logo ul .set{
+	width:38%;
+	text-align:right;
+}

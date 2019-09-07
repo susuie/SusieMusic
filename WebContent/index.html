@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html xmlns="/www.w3.org/1999/xhtml">
+<head id="Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>susie---SusieMusic</title>
+<meta name="Keywords" content="susie---SusieMusic_communication" />
+<meta name="Description" content="音乐社交" />
+<meta name="Copyright" content="susie.cn" />
+<link href="Images/web.css?v20150217" rel="stylesheet" />
+<link rel="stylesheet" href="css/stylesheets/style.css">
+<script src="js/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+
+function hehe(){
+
+	var aa="<div style=' position:relative; top:-120px; width:500px; height:200px; margin-left:32%;border-radius:15px; overflow:hidden;  border: 1px solid #CECFD4;-webkit-box-shadow:#666 0px 0px 10px;'><iframe name='iframe_canvas' src='http:\\\\douban.fm/partner/baidu/doubanradio' scrolling='no' frameborder='0' width='500' height='200'  ></iframe></div>";
+
+	
+
+	document.getElementById("douban").re
+
+	document.getElementById("douban").innerHTML=aa;
+
+	
+
+	}
+
+
+
+
+
+
+
+</script>
+</head>
+
+<body>
+<form method="post" action="" id="form1">
+  <div class="aspNetHidden">
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTc1NTI0MDUxNmRkhXbaTpIxMPDoysndg51aitx85REO2oAB9WjTm+jKHs4=" />
+  </div>
+  <div class="aspNetHidden">
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+  </div>
+  <div id="body" >
+    <div id="jp_container" role="application" aria-label="media player">
+      <div class="jp-type-playlist">
+        <div id="jplayer" class="jp-jplayer"></div>
+        <div class="jp-time"> <span class="jp-current-time" role="timer" aria-label="time"></span><span class="jp-duration" role="timer" aria-label="duration"></span> </div>
+      </div>
+    </div>
+  </div>
+  <div id="douban" style="margin:auto">
+    <div class="grid-music-container f-usn">
+      <div class="m-music-play-wrap">
+        <div class="u-cover"></div>
+        <div class="m-now-info">
+          <h1 class="u-music-title"><strong>标题</strong><small>歌手</small></h1>
+          <div class="m-now-controls">
+            <div class="u-control u-process"> <span class="buffer-process"></span> <span class="current-process"></span> </div>
+            <div class="u-control u-time">00:00/00:00</div>
+            <div class="u-control u-volume">
+              <div class="volume-process" data-volume="0.50"> <span class="volume-current"></span> <span class="volume-bar"></span> <span class="volume-event"></span> </div>
+              <a class="volume-control"></a> </div>
+          </div>
+          <div class="m-play-controls"> <a class="u-play-btn prev" title="上一曲"></a> <a class="u-play-btn ctrl-play play" title="暂停"></a> <a class="u-play-btn next" title="下一曲"></a> <a class="u-play-btn mode mode-list current" title="列表循环"></a> <a class="u-play-btn mode mode-random" title="随机播放"></a> <a class="u-play-btn mode mode-single" title="单曲循环"></a> </div>
+        </div>
+      </div>
+      <div class="f-cb">&nbsp;</div>
+      <div class="m-music-list-wrap"></div>
+    </div>
+    <script src="src/js/smusic.min.js"></script> 
+    <script>
+
+
+
+var musicList = [
+
+	{
+		title : '剑心',
+		singer : '张杰',
+		cover  : 'http://p1.music.126.net/XhCBGqLJhgpNGQwqtNdvWg==/2913705813975955.jpg',
+		src    : 'music/剑心.mp3'
+	},
+		{
+		title : '他不懂',
+		singer : '张杰',
+		cover  : 'http://p1.music.126.net/qXABwIVQkYiwWSI-44FsRw==/5993437883436278.jpg',
+		src    : 'music/张杰-他不懂.mp3',
+	},
+		{
+		title : '可能你还爱我',
+		singer : '炎亚纶',
+		cover  : 'http://p1.music.126.net/KwAPW3_vjs-qDCEW3FSjcA==/7899991046067628.jpg',
+		src    : 'music/可能你还爱我.mp3'
+	},
+		{
+		title : '蜀绣',
+		singer : '李宇春',
+		cover  : 'http://p1.music.126.net/wanw_Kcj-tQe64ZgHi5Pqw==/2404631930003676.jpg',
+		src    : 'music/蜀绣.mp3'
+	},
+		{
+		title : '听见下雨的声音',
+		singer : '周杰伦',
+		cover  : 'http://p1.music.126.net/EvWz-TdM6MUjEDS-6pmMbA==/7700979442816625.jpg',
+		src    : 'music/听见下雨的声音.mp3'
+	},
+		{
+		title : '下一个我',
+		singer : ' 鹿晗',
+		cover  : 'http://p1.music.126.net/ol5I7So8kHncjiFWLLYb8Q==/2262794929978909.jpg',
+		src    : 'music/下一个我.mp3'
+	},
+		{
+		title : '燕归巢',
+		singer : '张靓颖',
+		cover  : 'http://p1.music.126.net/R-5Tp3szxlwKd4dSxlNHhw==/7843915952927088.jpg',
+		src    : 'music/燕归巢.mp3'
+	},
+		
+		{
+		title : '唯一',
+		singer : '王力宏',
+		cover  : 'http://p1.music.126.net/YUIOO6IqkiC9j2jBp5mC0g==/7702078952964637.jpg',
+		src    : 'music/唯一.mp3'
+	},		
+
+	{
+		title : 'Alive',
+		singer : 'Zedd',
+		cover  : 'http://p1.music.126.net/vO1BwGdH68KPf5leH9TJ0g==/1274333976699542.jpg',
+		src    : 'http://m2.music.126.net/-Wr2SyEkGuZ9vw8kMjlwRA==/5775734580748469.mp3'
+	},
+{
+
+		title : 'Ten Feet Tall',
+
+		singer : 'Afrojack',
+
+		cover  : 'http://p1.music.126.net/n_pbWtVO3WLUUsCju1jtqA==/2539871860553850.jpg',
+
+		src    : 'http://m2.music.126.net/ucwxV9e1dz17kcsGLa_MHw==/5989039836531478.mp3'
+
+	},
+
+
+
+{
+
+		title : 'Illuminate',
+
+		singer : 'Afrojack',
+
+		cover  : 'http://p1.music.126.net/kiI_d6f2YPmSqmNwu_jhEA==/5960452534408399.jpg',
+
+		src    : 'http://m2.music.126.net/Ph6TZVGaHkOaDtHOucx6Sg==/6018726650832640.mp3'
+
+	},
+
+	{
+
+		title : 'Firework',
+
+		singer : 'Katy Perry',
+
+		cover  : 'http://p1.music.126.net/cq8PZj_GC6Vi9LP8pGrUVw==/1692148395152781.jpg',
+
+		src    : 'http://m2.music.126.net/3pB-tRZoga0l19Gc9LU8Ig==/2029698464885829.mp3'
+
+	},
+
+
+
+{
+
+		title : 'Clarity',
+
+		singer : 'Zedd',
+
+		cover  : 'http://p1.music.126.net/OlBzjDbNwho_qiEZnodWUg==/2539871861609412.jpg',
+
+		src    : 'http://m2.music.126.net/MyWaykZ-XILx4zAk7rTEaw==/1907652674191597.mp3'
+
+	},
+{
+
+		title : 'Friends ',
+
+		singer : 'ThimLife',
+
+		cover  : 'http://p1.music.126.net/I1Wu3PY_SQ-E0A-6YkD0nQ==/3225967119013435.jpg',
+
+		src    : 'http://m2.music.126.net/5i6Ko9PWkKYJGrbRhIXJDg==/6624557558863533.mp3'
+
+	},
+	{
+
+		title : 'Titanium',
+
+		singer : 'David Guetta,Sia',
+
+		cover  : 'http://p1.music.126.net/JXBip73Gnu5Wfx42OAbWKg==/1700944488175683.jpg',
+
+		src    : 'http://m2.music.126.net/KnatP3kp_-qNnYRuRVE-aQ==/1985717999775330.mp3'
+
+	}
+
+];
+
+
+new SMusic({
+
+	musicList:musicList
+
+});
+
+</script>
+    <link rel="stylesheet" href="src/css/smusic.css"/>
+  </div>
+  <div style=" position:relative; top:-180px; margin:auto;width:500px; height:40px"> 
+	<a style="text-align:center"  href="signin.html" class="btn hint  hint-top" data-hint="歌曲不合口味？点击登录susieMusic。">
+		<span>_</span> 登录susieMusic
+	</a> &nbsp;  &nbsp;  &nbsp; 
+	<a style="text-align:center" href="signup.html"   class="btn hint  hint-top" data-hint="还没SM账号，点击立即注册！">
+		<span>_</span>注册账号
+	</a>
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+  </div>
+  <div style="color:gray; font-family:微软雅黑; font-size:14px; position:relative; top:130px" >
+	&copy; 2018 susie.cn SusieMusicCommunication  QQ：2296649257 邮箱：susie8711@163.com 
+	<a style="color:gray; font-family:微软雅黑; font-size:14px;a:hover:black" target="_blank" href="#" title="留言给我">
+		给我留言
+	</a> &nbsp;&nbsp;&nbsp;
+	<a style="color:gray; font-family:微软雅黑; font-size:14px;a:hover:black" target="_blank" href="#" title="访问微博">
+		作者微博 &nbsp;&nbsp;
+	</a>
+  </div>
+</form>
+</body>
+</html>
+
+<script type="text/javascript" src="Images/three.min.js"></script>
+<script type="text/javascript" src="Images/Detector.js"></script>
+
+<script id="vs" type="x-shader/x-vertex">
+
+			varying vec2 vUv;
+
+			void main() {
+
+				vUv = uv;
+
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+			}
+
+    </script>
+<script id="fs" type="x-shader/x-fragment">
+
+			uniform sampler2D map;
+
+			uniform vec3 fogColor;
+
+			uniform float fogNear;
+
+			uniform float fogFar;
+
+			varying vec2 vUv;
+
+			void main() {
+
+				float depth = gl_FragCoord.z / gl_FragCoord.w;
+
+				float fogFactor = smoothstep( fogNear, fogFar, depth );
+
+				gl_FragColor = texture2D( map, vUv );
+
+				gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
+
+				gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
+
+			}
+
+    </script>
+<script type="text/javascript" src="Images/cloud.js"></script>
+

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>SusieMusic | Communication</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../js/jPlayer/jplayer.flat.css" type="text/css" />
+  <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../css/app.css" type="text/css" />  
+  <link rel="stylesheet" href="../css/head.css" type="text/css" />
+  <link rel="stylesheet" href="../js/datatables/jquery.dataTables.css" type="text/css" />   
+  <script src="../js/jquery/jquery.min.js"></script>
+  <script src="../js/datatables/jquery.dataTables.js"></script>
+  <script src="../js/user-manage.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="../js/turn.js"></script>
+   <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<body class="">
+	<div class="logo" style="background-color:#96d2de">
+		<ul>
+			<li style="width:5%;height:100%;"><img src="../image/logo1.png" /></li>
+			<li style="width:40%;height:100%"><img src="../image/head.png"/></li>			
+		</ul>
+	</div>
+	<div style="clear:both;"></div>
+  <section class="vbox">
+    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+      <div class="navbar-header aside bg-info dk">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+          <i class="icon-list"></i>
+        </a>
+        <a href="javascript:;" class="navbar-brand text-lt" onclick="turnlogin()">
+          <i class="icon-earphones"></i>
+          <img src="../image/logo.png" alt="." class="hide">
+          <span class="hidden-nav-xs m-l-sm">音乐</span>
+        </a>
+        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+          <i class="icon-settings"></i>
+        </a>
+      </div>      <ul class="nav navbar-nav hidden-xs">
+        <li>
+          <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+            <i class="fa fa-indent text"></i>
+            <i class="fa fa-dedent text-active"></i>
+          </a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></button>
+            </span>
+            <input type="text" class="form-control input-sm no-border rounded" placeholder="搜索用户，歌曲...">
+          </div>
+        </div>
+      </form>
+      <div class="navbar-right ">
+        <ul class="nav navbar-nav m-n hidden-xs nav-user user">         
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="../image/logo2.png" alt="...">
+              </span>
+              <span id="usersession"></span> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight">            
+              <li>
+                <span class="arrow top"></span>
+                <a href="javascript:;" onclick="setting()">设置</a>
+              </li>
+              <li>
+                <a href="profile">我的信息</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge bg-danger pull-right">3</span>
+                  消息
+                </a>
+              </li>
+              <li>
+                <a href="docs">帮助</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="../index.html">退出</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>      
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-black dk aside hidden-print" id="nav">          
+          <section class="vbox">
+            <section class="w-f-md scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">                
+                <!-- nav -->                 
+                <nav class="nav-primary hidden-xs">
+                  <ul class="nav bg clearfix">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      发现
+                    </li>
+                    <li id="uumanage" style="display:block">
+                      <a href="manage">
+                        <i class="icon-user"></i>
+                        <span class="font-bold">管理员</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="genres">
+                        <i class="icon-music-tone-alt icon text-info"></i>
+                        <span class="font-bold">主题音乐</span>
+                      </a>
+                    </li>
+                    <li id="event" style="display:block">
+                      <a href="events">
+                        <i class="icon-drawer icon text-primary-lter"></i>
+                        <b class="badge bg-primary pull-right">6</b>
+                        <span class="font-bold">广场</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="listen">
+                        <i class="icon-list icon  text-info-dker"></i>
+                        <span class="font-bold">乐听</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="video" data-target="#content" data-el="#bjax-el" data-replace="true">
+                        <i class="icon-social-youtube icon  text-primary"></i>
+                        <span class="font-bold">视频</span>
+                      </a>
+                    </li>
+                    <li class="m-b hidden-nav-xs"></li>
+                  </ul>
+                  <ul class="nav" data-ride="collapse">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      接口
+                    </li>                
+                    <li >
+                      <a href="#" class="auto">
+                       
+                        <i class="icon-grid icon">
+                        </i>
+                        <span>网页</span>
+                      </a>
+                      </li>
+                        <li >
+                          <a href="profile" class="auto">                                                        
+                            <i class="fa fa-angle-right text-xs"></i>
+
+                            <span>个人展示</span>
+                          </a>
+                        </li>
+                  </ul>
+                  <ul class="nav text-sm">
+                    <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                      <span class="pull-right"><a href="#"><i class="icon-plus i-lg"></i></a></span>
+                     我的歌单
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="icon-music-tone icon"></i>
+                        <span>我喜欢的歌</span>
+                      </a>
+                    </li>                  
+                  </ul>
+                </nav>
+                <!-- / nav -->
+              </div>
+            </section>                       
+          </section>
+        </aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="vbox" id="bjax-el">
+            <section class="scrollable padder-lg">
+              <h4 class="font-thin m-b">用户管理</h4>             
+              <div class="row row-sm"> 
+              	<table id="usermanage" class="display">
+	                 		  <thead>
+	                  			<tr>	                      		
+				                   	 <th>用户名</th>
+				                     <th>积分</th>
+				                     <th>角色</th>
+				                     <th>VIP时间</th>
+				                     <th>用户类型</th>
+				                     <th>用户性别</th>
+				                     <th></th>
+				                     <th></th>
+				                     <th>用户管理</th>		                     
+	                 			</tr>
+	                 		</thead> 
+	                 		<tbody></tbody>
+             			</table>                                                
+              </div>
+              <h4 class="font-thin m-b">财务管理</h4>
+              <div class="row row-sm">
+              	     <table id="finacemanage" class="display">
+	                 		  <thead>
+	                  			<tr>	                      		
+				                   	 <th>时间</th>
+				                     <th>入账金额</th>
+				                     <th>出账金额</th>
+				                     <th>收出</th>				                     
+				                     <th></th>		                     
+	                 			</tr>
+	                 		</thead> 
+	                 		<tbody></tbody>
+             			</table>                                                                                                                                                              
+              </div> 
+			  <h4 class="font-thin m-b">歌曲管理</h4>
+              <div class="row row-sm">
+              	<table id="songmanage" class="display">
+	                 		  <thead>
+	                  			<tr>             					                      		
+				                   	 <th>歌名</th>
+				                     <th>歌手</th>
+				                     <th>歌曲链接</th>
+				                     <th>歌曲风格</th>
+				                     <th>试听次数</th>
+				                     <th>点赞次数</th>
+				                     <th>下载次数</th>
+				                     <th>评论次数</th>
+				                     <th>歌词链接</th>
+				                     <th>歌曲管理</th>				                    
+				                     <th></th>	                     
+	                 			</tr>
+	                 		</thead> 
+	                 		<tbody></tbody>
+             			</table>                                                                                                                                                                   
+              </div> 
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+        </section>
+      </section>
+    </section>    
+  </section> 
+  <!-- 添加用户模态框 -->
+  <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:60%;margin:0 auto;">
+            <div class="modal-header" style="background-color:#33a6e5;color:#fff;padding:10px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true" style="font-size:29px;opacity:1;color:#fff">&times;</span></button>
+                <h4 class="modal-title">添加用户信息</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom:0;">
+            	<div class="form-group">
+                    	用户名:<input type="text"  class="form-control" id="addname" placeholder="用户名">
+                </div>
+                <div class="form-group">
+                    	密码:<input type="password" class="form-control" id="pwd" placeholder="密码">
+                </div>                                            
+                <div class="form-group">
+                    	用户性别<input type="text" class="form-control" id="sex" placeholder="性别">
+                </div>               
+            </div>
+            <div class="modal-footer" style="text-align:center;">                
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="add-confirm" style="margin-left:10px;">确定</button>
+            </div>
+        </div>
+    </div>
+	</div>
+   <script type="text/javascript">
+ 	$(document).ready(function(){
+ 		var username = null;
+ 		$.get("getsession",function(data){ 			
+ 		username=data.nickName;
+ 		user = data.userid;
+ 		$("#usersession")[0].innerText = username;
+ 		});
+ 	});
+ </script>
+</body>
+</html>

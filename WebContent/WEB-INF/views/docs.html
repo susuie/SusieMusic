@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>SusieMusic | Communication</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../js/jPlayer/jplayer.flat.css" type="text/css" />
+  <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../css/app.css" type="text/css" />  
+  <link rel="stylesheet" href="../css/head.css" type="text/css" />
+   <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<body class="">
+	<div class="logo" style="background-color:#96d2de">
+		<ul>
+			<li style="width:5%;height:100%;"><img src="../image/logo1.png" /></li>
+			<li style="width:40%;height:100%"><img src="../image/head.png"/></li>
+		</ul>
+	</div>
+	<div style="clear:both;"></div>
+    <section class="hbox stretch">
+    <!-- .aside -->
+    <aside class="bg-light aside b-r animated fadeInLeftBig">
+      <section class="vbox">
+        <header class="header b-b navbar">
+          <a class="btn btn-link pull-right visible-xs" data-toggle="class:show" data-target=".nav-primary">
+            <i class="fa fa-bars"></i>
+          </a>
+          <a href="login" class="navbar-brand">主页</a>
+        </header>
+        <section class="scrollable">
+          <nav class="nav-primary hidden-xs nav-docs">
+            <ul class="nav">
+              <li class="dropdown-header b-b b-light"><em>使用说明</em></li>
+              <li><a href="#icons">歌曲模块</a></li>
+              <li><a href="#animate">聊天模块</a></li>
+              <li><a href="#colors">个人设置模块</a></li>                                 
+              <li class="dropdown-header b-b b-light"><em>网站介绍</em></li>
+              <li><a href="#toggle-class">用户权限介绍</a></li>
+              <li><a href="#shift">联系我们</a></li>          
+            </ul>
+          </nav>
+        </section>
+      </section>
+    </aside>
+    <!-- /.aside -->
+    <section id="content">
+      <section class="vbox">
+        <section class="scrollable bg-light lter" data-spy="scroll" data-target=".nav-primary">
+          <section  id="docs">
+            <div class="clearfix padder">
+              <h4 id="icons" class="m-t-lg">歌曲模块</h4>
+              <p><strong>歌曲试听：</strong>页面上展示的歌曲可以随意点击试听，也可以直接点击播放按钮，随机播放曲库音乐。</p>
+              <p><strong>歌曲检索：</strong>已知歌曲名称或歌手名字，根据歌曲名或歌手名查找对应的歌曲。</p>
+			  <p><strong>歌曲点赞（取消点赞）：</strong>主页上的每首歌曲图片上都有表示点赞的心形图标，点击该图标，若点赞成功，图标变成红色，数据库该歌曲的点赞数量加1，如果此时图标为红色，点击则代表取消之前的点赞，数据库对应歌曲的点赞数减1。</p>
+			  <p><strong>歌曲评论：</strong>主页上每首歌曲都有表示评论的图标，点击该图标弹出评论框，填写想要评论的内容，点击确定按钮提交评论，如果成功则会在数据库中的歌曲评论表中添加对应歌曲id的评论。</p>
+			  <p><strong>歌曲下载：</strong>每首歌都有表示下载的图标，点击该图标弹出下载提示框，选择你想要存储歌曲的位置，点击确定，则会开始获取歌曲音频大小，完成下载。</p>
+			  <p><strong>歌曲上传：</strong>进入系统后选择广场界面，点击页面上的上传按钮，在弹出上传的弹出层上填写相关歌曲信息,点击确定，则会在数据库歌曲表中增加该歌曲信息。</p>			
+              <p><strong>动态发表：</strong>进入系统后选择广场界面，点击发表动态按钮，在弹出的发表动态框里填写自己想要发表的内容，点击确认即可。</p>
+              <h4 id="animate" class="m-t-lg">聊天模块</h4>
+              <p><strong>添加好友</strong>：点击主页界面上的添加好友，在弹出的界面上输入你要添加好友的用户名，在查找结果界面，若该用户存在，则在返回界面点击建立好友关系按钮，若不存在则反馈用户不存在。</p>
+              <p><strong>删除好友</strong>：点击主页界面上的删除好友，在弹出的界面上选择要删除的好友，点击确认删除。</p>
+              
+              <h4 id="colors" class="m-t-lg">个人设置模块 <small>用户可以更改自己的信息</small></h4>
+              <p><strong>更改基本信息</strong>：点击用户头像，选择设置，在弹出来的界面上修改个人基本信息，点击保存。</p>
+              <p><strong>充值/兑换vip</strong>：进入系统后选择个人信息页面，点击积分则可以查看当前所拥有的积分，点击积分兑换，若积分足够则可以兑换相应时长的vip，点击充值，选择相应的时长，点击确定，则可以完成充值。</p>
+              <h3 class="text-info">网站介绍 </h3>
+              <div class="line">
+              	<p>音乐社交平台，这是一个面对所有网民的系统，
+              	主要包含四个大的功能模块：歌曲模块，聊天模块，系统管理模块，
+              	个人信息管理模块；主要有三种系统角色，普通用户可以在歌曲模块对歌曲进行试听，
+              	点赞，下载，收藏等，VIP用户相比普通用户而言可以上传自己原创的歌曲，
+              	可以拥有自己独特的定位标签等，管理员与用户的区别在于管理员可以对歌曲，
+              	用户和系统财务进行管理。以歌曲模块为例，用户进入主页后就可以选择自己喜欢的歌曲试听，
+              	也可以通过搜索来查找喜欢的歌曲，歌手等；
+              	当歌荒时也可以到主题歌曲页面选取自己喜欢的风格随机听歌。
+              	当听到触动自己内心的歌曲时可以在评论区分享自己的故事，
+              	还可以在评论区查看他人的留言，还可以将歌曲分享给好友，
+              	分享到广场；也可以收藏和下载该歌曲。如果是达人，
+              	可以去乐听页面查看当日音乐达人，顺便收听当日火爆歌曲。
+              	</p>
+              </div>
+              <h4 id="toggle-class">用户权限介绍</h4>
+              <p>用户角色</p>
+              <h5><strong>普通用户</strong></h5>
+             <p>普通用户可以听歌，给歌曲点赞、评论，将歌曲添加到自己的歌单。可以添加好友聊天，创建聊天群，邀请好友入群，删除好友。可以修改自己的基本信息，充值/兑换转成vip用户等权限。</p>             
+              <h5><strong>VIP用户</strong></h5>
+              <p>VIP用户除了拥有普通用户所拥有的全部权限，还可以有一个广场界面，可以查看vip用户发表的动态，评论动态，上传歌曲和发表动态等</p>
+              <h4 id="shift" class="m-t-lg">联系我们</h4>
+              <p>合作方可以联系：susie8711@163.com</p>
+              <p>用户建议可以联系：2296649257@qq.com</p>
+              <p>紧急联系：0791-8881-264</p>
+              <div class="panel shift b-light" data-toggle="shift:insertBefore" data-target="#shift-target"></div>                      
+              <p>Use response.js to support IE8 media queries and html5.js to support html5 markups.</p>
+        	  <pre><code class="html"><!--[if lt IE 9]>
+		        <script src="js/ie/respond.min.js"></script>
+		        <script src="js/ie/html5.js"></script>
+		        <script src="js/ie/excanvas.js"></script>
+		        <![endif]--></code>
+		      </pre>       
+       		</div>
+          </section>
+        </section>
+      </section>
+    </section>
+   </section>
+  <script src="../js/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="../js/app.js"></script>  
+  <script src="../js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Easy Pie Chart -->
+  <script src="../js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
+  <script src="../js/app.plugin.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<script src="js/jquery-1.7.2.min.js"></script>
+	</head>
+	<body>
+		<!--  <audio controls id="audio">
+			<source src="music/听见下雨的声音.mp3" type="audio/mpeg"/>
+		</audio>
+		<span class="wordsbtn" onclick="showWords()">词</span>-->
+		<div id="lyricContainer"></div>
+	</body>
+	<script type="text/javascript" charset="utf-8">		
+		
+		function parseLyric(text) {
+			//将文本分隔成一行一行，存入数组
+			var lines = text.split('\n'),
+				//用于匹配时间的正则表达式，匹配的结果类似[xx:xx.xx]
+				pattern = /\[\d{2}:\d{2}.\d{2}\]/g,
+				//保存最终结果的数组
+				result = [];
+			//去掉不含时间的行
+			while (!pattern.test(lines[0])) {
+				lines = lines.slice(1);
+			};
+			//上面用'\n'生成生成数组时，结果中最后一个为空元素，这里将去掉
+			lines[lines.length - 1].length === 0 && lines.pop();
+			lines.forEach(function(v /*数组元素值*/ , i /*元素索引*/ , a /*数组本身*/ ) {
+				//提取出时间[xx:xx.xx]
+				var time = v.match(pattern),
+					//提取歌词
+					value = v.replace(pattern, '');
+				//因为一行里面可能有多个时间，所以time有可能是[xx:xx.xx][xx:xx.xx][xx:xx.xx]的形式，需要进一步分隔
+				time.forEach(function(v1, i1, a1) {
+					//去掉时间里的中括号得到xx:xx.xx
+					var t = v1.slice(1, -1).split(':');
+					//将结果压入最终数组
+					result.push([parseInt(t[0], 10) * 60 + parseFloat(t[1]), value]);
+				});
+			});
+			//最后将结果数组中的元素按时间大小排序，以便保存之后正常显示歌词
+			result.sort(function(a, b) {
+				return a[0] - b[0];
+			});
+			return result;
+			}
+		var text=null;	
+	window.onload=function(){
+		var url = "lrc/周杰伦-听见下雨的声音.txt";		
+		$.ajax({ url: url,				
+				type: "get",
+				async:false,
+				dataType:"text",								
+				success: function(data) { text = data; }
+				});		
+	    var lyric = parseLyric(text);
+		//获取页面上的audio标签
+		var audio = document.getElementById('audio');
+    //显示歌词的元素
+		var lyricContainer = document.getElementById('lyricContainer');
+		for (var i = 0, l = lyric.length; i < l; i++) {
+			//if (this.currentTime > lyric[i][0]) {
+				//显示到页面
+				lyricContainer.innerText += lyric[i][1];
+			//}
+		}
+		
+		//监听ontimeupdate事件
+		/*audio.addEventListener("timeupdate",function(){
+			//遍历所有歌词，看哪句歌词的时间与当然时间吻合
+			for (var i = 0, l = lyric.length; i < l-1; i++) {
+				if (this.currentTime > lyric[i][0]) {
+					//显示到页面
+					lyricContainer.innerText = lyric[i][1] + lyric[i+1][1];
+				}
+			}
+		});*/ 
+	};
+	
+	</script>
+</html>
